@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 title: Benvenuto sul sito di Gabriel Jones
 description: n/a
 lang: it
