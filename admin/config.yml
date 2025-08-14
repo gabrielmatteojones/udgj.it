@@ -6,7 +6,6 @@ media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  # Modifica diretta di _config.yml
   - name: "settings"
     label: "Impostazioni Sito"
     files:
@@ -14,8 +13,8 @@ collections:
         name: "config"
         file: "_config.yml"
         fields:
-          - { label: "Ambiente", name: "environment", widget: "select", options: ["production", "development"] }
-          - { label: "Noindex", name: "noindex", widget: "boolean", default: false, required: false }
+          - { label: "Ambiente", name: "environment", widget: "select", options: ["production", "development"], default: "production" }
+          - { label: "Noindex", name: "noindex", widget: "boolean", default: false }
           - { label: "Disqus Shortname", name: "disqus", widget: "string", required: false }
           - { label: "Google Analytics", name: "google_analytics", widget: "string", required: false }
           - { label: "URL Sito", name: "url", widget: "string" }
@@ -26,8 +25,13 @@ collections:
             name: "sass"
             widget: "object"
             fields:
-              - { label: "Style", name: "style", widget: "select", options: [":compressed", ":expanded"], default: ":compressed" }
-          - { label: "Plugin", name: "plugins", widget: "list", default: ["jekyll-sitemap", "jekyll-feed"] }
+              - { label: "Style", name: "style", widget: "select", options: ["compressed", "expanded"], default: "compressed" }
+          - label: "Plugin"
+            name: "plugins"
+            widget: "list"
+            default:
+              - "jekyll-sitemap"
+              - "jekyll-feed"
           - { label: "Titolo", name: "title", widget: "string" }
           - { label: "Descrizione", name: "description", widget: "string" }
           - { label: "Parole Chiave", name: "keywords", widget: "string" }
@@ -37,7 +41,6 @@ collections:
           - { label: "Canonical URL", name: "canonical_url", widget: "string", required: false }
           - { label: "RSS Feed URL", name: "rss_feed_url", widget: "string", required: false }
 
-  # Pagine statiche
   - name: "pages"
     label: "Pagine"
     folder: "_pages"
@@ -50,7 +53,6 @@ collections:
       - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Corpo", name: "body", widget: "markdown" }
 
-  # Articoli
   - name: "posts"
     label: "Articoli"
     folder: "_posts"
