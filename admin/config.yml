@@ -1,59 +1,47 @@
 backend:
   name: git-gateway
-  branch: 48891
+  branch: "48891"
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "assets"
+public_folder: "/assets/"
 
 collections:
-  - name: "pages"
+  - name: "pagine"
     label: "Pagine"
-    folder: "_pages"
+    folder: "pages"
     create: true
     slug: "{{slug}}"
-    extension: "md"
     fields:
-      - label: "Titolo"
-        name: "title"
-        widget: "string"
-      - label: "Layout"
-        name: "layout"
-        widget: "string"
-        default: "page"
-      - label: "Data"
-        name: "date"
-        widget: "datetime"
-      - label: "Corpo"
-        name: "body"
-        widget: "markdown"
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+      - { name: "title", label: "Titolo", widget: "string" }
+      - { name: "date", label: "Data", widget: "datetime", default: "", hidden: true }
+      - { name: "permalink", label: "Link personalizzato", widget: "string", required: true }
+      - { name: "image", label: "Immagine", widget: "image", required: false }
+      - { name: "body", label: "page", widget: "markdown" }
+      - { label: "Categoria", name: "categories", widget: "string", default: "[educazione]" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
+        widget: "list"
+        required: false
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
 
   - name: "posts"
-    label: "Articoli"
+    label: "Post"
+    label_singular: "Post"
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    extension: "md"
+    preview_path: "posts/{{slug}}"
+    sortable_fields: ['date', 'title']
     fields:
-      - label: "Titolo"
-        name: "title"
-        widget: "string"
-      - label: "Layout"
-        name: "layout"
-        widget: "string"
-        default: "post"
-      - label: "Data"
-        name: "date"
-        widget: "datetime"
-      - label: "Categorie"
-        name: "categories"
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
+      - { label: "Categoria", name: "categories", widget: "list", default: ["notizie"] }
+      - { label: "Tag", name: "tags", widget: "list" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - { label: "Autore", name: "autore", widget: "string", default: "Redazione: Gabriel Matteo Jones" }
+      - label: "Persone correlate"
+        name: "persone_correlate"
         widget: "list"
         required: false
-        default: []
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        required: false
-        default: []
-      - label: "Corpo"
-        name: "body"
-        widget: "markdown"
+        hint: "Inserisci gli slug delle persone (es: mario-rossi, lucia-bianchi)"
