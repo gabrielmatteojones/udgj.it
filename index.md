@@ -1,6 +1,6 @@
 ---
-layout: page
-title: Benvenuto sul sito di Gabriel Jones
+layout: base
+title: Benvenuto nell'ufficio digitale di Gabriel Matteo Jones
 description: n/a
 lang: it
 ref: homepage
