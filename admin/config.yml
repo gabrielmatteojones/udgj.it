@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: 48891
-  
+
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -13,10 +13,19 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Layout", name: "layout", widget: "string", default: "page" }
-      - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Corpo", name: "body", widget: "markdown" }
+      - label: "Titolo"
+        name: "title"
+        widget: "string"
+      - label: "Layout"
+        name: "layout"
+        widget: "string"
+        default: "page"
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+      - label: "Corpo"
+        name: "body"
+        widget: "markdown"
 
   - name: "posts"
     label: "Articoli"
@@ -25,9 +34,26 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
     fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Layout", name: "layout", widget: "string", default: "post" }
-      - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Categorie", name: "categories", widget: "list", required: false, default: [] }
-      - { label: "Tags", name: "tags", widget: "list", required: false, default: [] }
-      - { label: "Corpo", name: "body", widget: "markdown" }
+      - label: "Titolo"
+        name: "title"
+        widget: "string"
+      - label: "Layout"
+        name: "layout"
+        widget: "string"
+        default: "post"
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+      - label: "Categorie"
+        name: "categories"
+        widget: "list"
+        required: false
+        default: []
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        default: []
+      - label: "Corpo"
+        name: "body"
+        widget: "markdown"
