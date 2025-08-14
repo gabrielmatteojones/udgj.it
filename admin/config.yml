@@ -1,46 +1,11 @@
 backend:
   name: git-gateway
   branch: 48891
-
+  
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  - name: "settings"
-    label: "Impostazioni Sito"
-    files:
-      - label: "Configurazione Generale"
-        name: "config"
-        file: "_config.yml"
-        fields:
-          - { label: "Ambiente", name: "environment", widget: "select", options: ["production", "development"], default: "production" }
-          - { label: "Noindex", name: "noindex", widget: "boolean", default: false }
-          - { label: "Disqus Shortname", name: "disqus", widget: "string", required: false }
-          - { label: "Google Analytics", name: "google_analytics", widget: "string", required: false }
-          - { label: "URL Sito", name: "url", widget: "string" }
-          - { label: "Base URL", name: "baseurl", widget: "string", required: false }
-          - { label: "Permalink", name: "permalink", widget: "string", default: "/:title/" }
-          - { label: "Versione Tema", name: "version", widget: "string", default: "v4.0.0" }
-          - label: "Sass"
-            name: "sass"
-            widget: "object"
-            fields:
-              - { label: "Style", name: "style", widget: "select", options: ["compressed", "expanded"], default: "compressed" }
-          - label: "Plugin"
-            name: "plugins"
-            widget: "list"
-            default:
-              - "jekyll-sitemap"
-              - "jekyll-feed"
-          - { label: "Titolo", name: "title", widget: "string" }
-          - { label: "Descrizione", name: "description", widget: "string" }
-          - { label: "Parole Chiave", name: "keywords", widget: "string" }
-          - { label: "Autore", name: "author", widget: "string" }
-          - { label: "Lingua", name: "language", widget: "string", default: "it" }
-          - { label: "Immagine Open Graph", name: "og_image", widget: "image", required: false }
-          - { label: "Canonical URL", name: "canonical_url", widget: "string", required: false }
-          - { label: "RSS Feed URL", name: "rss_feed_url", widget: "string", required: false }
-
   - name: "pages"
     label: "Pagine"
     folder: "_pages"
@@ -63,6 +28,6 @@ collections:
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Layout", name: "layout", widget: "string", default: "post" }
       - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Categoria", name: "categories", widget: "list", required: false }
+      - { label: "Categorie", name: "categories", widget: "list", required: false }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Corpo", name: "body", widget: "markdown" }
