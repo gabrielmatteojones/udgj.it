@@ -1,17 +1,12 @@
 backend:
   name: git-gateway
-  branch: main # ramo principale del repository
+  branch: 48891
 
-media_folder: "assets/uploads" # dove salvare i file caricati
+media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-# Impostazioni globali
-site_url: "https://tuo-sito.netlify.app"
-display_url: "https://tuo-sito.netlify.app"
-logo_url: "/assets/logo.png"
-
 collections:
-  # Gestione file _config.yml
+  # Modifica diretta di _config.yml
   - name: "settings"
     label: "Impostazioni Sito"
     files:
@@ -19,16 +14,28 @@ collections:
         name: "config"
         file: "_config.yml"
         fields:
-          - { label: "Titolo", name: "title", widget: "string" }
-          - { label: "Descrizione", name: "description", widget: "string" }
-          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Ambiente", name: "environment", widget: "select", options: ["production", "development"] }
+          - { label: "Noindex", name: "noindex", widget: "boolean", default: false, required: false }
+          - { label: "Disqus Shortname", name: "disqus", widget: "string", required: false }
+          - { label: "Google Analytics", name: "google_analytics", widget: "string", required: false }
+          - { label: "URL Sito", name: "url", widget: "string" }
           - { label: "Base URL", name: "baseurl", widget: "string", required: false }
-          - label: "Autore"
-            name: "author"
+          - { label: "Permalink", name: "permalink", widget: "string", default: "/:title/" }
+          - { label: "Versione Tema", name: "version", widget: "string", default: "v4.0.0" }
+          - label: "Sass"
+            name: "sass"
             widget: "object"
             fields:
-              - { label: "Nome", name: "name", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Style", name: "style", widget: "select", options: [":compressed", ":expanded"], default: ":compressed" }
+          - { label: "Plugin", name: "plugins", widget: "list", default: ["jekyll-sitemap", "jekyll-feed"] }
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Descrizione", name: "description", widget: "string" }
+          - { label: "Parole Chiave", name: "keywords", widget: "string" }
+          - { label: "Autore", name: "author", widget: "string" }
+          - { label: "Lingua", name: "language", widget: "string", default: "it" }
+          - { label: "Immagine Open Graph", name: "og_image", widget: "image", required: false }
+          - { label: "Canonical URL", name: "canonical_url", widget: "string", required: false }
+          - { label: "RSS Feed URL", name: "rss_feed_url", widget: "string", required: false }
 
   # Pagine statiche
   - name: "pages"
@@ -39,10 +46,11 @@ collections:
     extension: "md"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Layout", name: "layout", widget: "string", default: "page" }
       - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Corpo", name: "body", widget: "markdown" }
 
-  # Post del blog
+  # Articoli
   - name: "posts"
     label: "Articoli"
     folder: "_posts"
@@ -51,20 +59,8 @@ collections:
     extension: "md"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Layout", name: "layout", widget: "string", default: "post" }
       - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Categoria", name: "categories", widget: "list" }
+      - { label: "Categoria", name: "categories", widget: "list", required: false }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Corpo", name: "body", widget: "markdown" }
-
-  # Documenti
-  - name: "docs"
-    label: "Documenti"
-    folder: "_docs"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Descrizione", name: "description", widget: "text" }
-      - { label: "File PDF", name: "file", widget: "file" }
-      - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Corpo", name: "body", widget: "markdown", required: false }
