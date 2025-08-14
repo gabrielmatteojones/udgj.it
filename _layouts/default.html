@@ -1,193 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-<title>Gabriel Matteo Jones</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.14.0/dist/css/bootstrap-italia.min.css">
-<link rel="stylesheet" href="https://www.comune.bologna.it/style.min.css?v=1625">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-italia@2.14.0/dist/js/bootstrap-italia.min.js"></script>
-<link rel="icon" href="https://gabrieljones.it/assets/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>Ufficio Digitale Gabriel Jones</title>
 
-  <head>
-    <!-- Impostazione del charset -->
-    <meta charset="UTF-8">
-    
-    <!-- Configurazione del viewport per dispositivi mobili -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Meta description (usando quella del post o il valore di default dal config) -->
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    
-    <!-- Meta keywords (usando quelli del post o il valore di default dal config) -->
-    <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
-    
-    <!-- Meta autore -->
-    <meta name="author" content="{{ site.author }}">
-    
-    <!-- Meta language -->
-    <meta name="language" content="{{ site.language }}">
-    
-    <!-- Meta robots -->
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph metadata -->
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ page.description | default: site.description }}">
-    <meta property="og:image" content="{{ page.image | default: site.og_image }}">
-    <meta property="og:url" content="{{ page.url | default: site.canonical_url }}">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter card metadata -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-    <meta name="twitter:image" content="{{ page.image | default: site.og_image }}">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="{{ site.og_image }}" type="image/x-icon">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ page.canonical_url | default: site.canonical_url }}">
-    
-    <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" href="{{ site.rss_feed_url }}">
-    
-    <!-- Meta generator -->
-    <meta name="generator" content="NexBlog">
-    
-    <!-- Title -->
-    <title>{{ page.title | default: site.title }}</title>
-</head>
+  <meta name="description" content="Ufficio Gabriel Jones" />
+  <meta name="author" content="DataWin" />
+  <meta name="robots" content="index, follow" />
+  
+  <link rel="icon" href="https://gabrieljones.it/assets/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://gabrieljones.it/assets/favicon.ico" type="image/x-icon" />
 
 
+  <link href="
+    https://cdn.jsdelivr.net/npm/bootstrap-italia@2.16.0/dist/css/bootstrap-italia.min.css
+" rel="stylesheet">
+
+  <!-- USWDS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/uswds@2.14.0/dist/css/uswds.min.css" rel="stylesheet" />
+  
+  <style>
+    body {
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #212121;
+    }
+    main {
+      flex-grow: 1;
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    footer {
+      background-color: #002a5c;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+      box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
+    }
+    
+    /* Navbar logo + text affiancati */
+    .usa-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      position: relative;
+    }
+    .usa-logo__link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .usa-logo__link img {
+      height: 48px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+      transition: transform 0.3s ease;
+    }
+    .usa-logo__link:hover img,
+    .usa-logo__link:focus img {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
+    }
+    
+    /* Titolo semplice desktop */
+    .usa-logo__title-static {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #002a5c;
+      white-space: nowrap;
+      cursor: default;
+      border: none;
+      background: none;
+      padding: 0;
+      user-select: none;
+      display: inline-block;
+    }
+    
+    /* Titolo bottone mobile (hidden desktop) */
+    .usa-logo__title-button {
+      display: none;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #002a5c;
+      white-space: nowrap;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      user-select: none;
+      position: relative;
+    }
+    
+    /* Dropdown menu mobile */
+    .dropdown-menu-mobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+      border-radius: 4px;
+      min-width: 160px;
+      margin-top: 0.25rem;
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+    }
+    .dropdown-menu-mobile.show {
+      display: flex;
+    }
+    .dropdown-menu-mobile a {
+      padding: 0.5rem 1rem;
+      color: #002a5c;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .dropdown-menu-mobile a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-menu-mobile a:hover,
+    .dropdown-menu-mobile a:focus {
+      background-color: #f0f9ff;
+      outline: none;
+    }
+    
+    /* Nascondi titolo bottone mobile da desktop */
+    @media (max-width: 767px) {
+      .usa-logo__title-static {
+        display: none;
+      }
+      .usa-logo__title-button {
+        display: inline-block;
+      }
+    }
+    
+    /* Navbar active link style */
+    .usa-nav__link[aria-current="page"] {
+      font-weight: 600;
+      border-bottom: 3px solid #005ea2;
+      color: #005ea2;
+    }
+    
+    /* Table styling */
+    .usa-table--striped tbody tr:nth-child(odd) {
+      background-color: #f2f4f7;
+    }
+    
+    /* Hero image full width */
+    .hero-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
+    }
+    
+    /* Search form spacing */
+    nav form {
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-<header class="it-header-wrapper it-shadow">
-  <div class="it-nav-wrapper">
-    <div class="it-header-center-wrapper theme-light">
-      <div class="container-xxl">
-        <div class="row">
-          <div class="col-12">
-            <div class="it-header-center-content-wrapper">
-              <div class="it-brand-wrapper">
-                <a href="/">
-<img src="https://gabrieljones.it/assets/logo.png" alt="Logo" class="icon icon-sm me-2" width="40" height="40">
-                  <div class="it-brand-text">
-                    <div class="it-brand-title">Gabriel Matteo Jones</div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+
+
+  
+  <header class="usa-header usa-header--basic" role="banner">
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <div class="usa-logo" id="basic-logo">
+          <a href="/" class="usa-logo__link" title="Homepage" aria-label="Homepage">
+            <img src="https://gabrieljones.it/assets/logo.png" alt="Logo" />
+          <!-- Titolo semplice desktop -->
+          <span class="usa-logo__title-static">Ufficio Digitale di Gabriel Jones</span>
+          <!-- Titolo bottone mobile -->
+          <button id="titleMobileBtn" class="usa-logo__title-button" aria-haspopup="true" aria-expanded="false" aria-controls="titleMobileMenu">
+            Ufficio Digitale di Gabriel Jones
+          </button>
+          </a>
         </div>
+        <button class="usa-menu-btn" aria-expanded="false" aria-controls="basic-mobile-menu">Menu</button>
       </div>
-    </div>
-    <div class="it-header-navbar-wrapper theme-light-desk">
-      <div class="container-xxl">
-        <div class="row">
-          <div class="col-12">
-            <!--start nav-->
-            <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
-              <button class="custom-navbar-toggler" type="button" aria-controls="navC2" aria-expanded="false" aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#navC2">
-                <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use></svg>
-              </button>
-              <div class="navbar-collapsable" id="navC2" style="display: none;">
-                <div class="overlay" style="display: none;"></div>
-                <div class="close-div">
-                  <button class="btn close-menu" type="button">
-                    <span class="visually-hidden">Nascondi la navigazione</span>
-                    <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-close-big"></use></svg>
-                  </button>
-                </div>
-                <div class="menu-wrapper">
-                  <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="https://blog.gabrieljones.it/gabrielmatteojones/authors/"><span>Autori e scrittori</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/relazione/"><span>Relazione annuale per l'accessibilità</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://ufficio.gjws.it/servizi/"><span>Servizi</span></a></li>
 
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<nav id="basic-mobile-menu" class="usa-nav" role="navigation" aria-label="Primary navigation">
+  <ul class="usa-nav__primary usa-accordion">
+    <li class="usa-nav__primary-item">
+      <a href="#" class="usa-nav__link" aria-current="page">Home</a>
+    </li>
 
-
-<div class="BXB">  {{ content }}   </div>
-<footer class="it-footer">
-  <div class="it-footer-main">
-    <div class="container">
-      <section>
-        <div class="row clearfix">
-          <div class="col-sm-12">
-            <div class="it-brand-wrapper">
-              <a href="#" data-focus-mouse="false">
-<img src="https://gabrieljones.it/assets/logo.png" alt="Logo" width="180" height="180">                <div class="it-brand-text">
-                  <h2>Blog di Gabriel Matteo Jones</h2>
-                  <h3 class="d-none d-md-block">Ieri è storia, domani è un mistero, ma oggi è un dono: per questo si chiama presente. - Maestro Oogway</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="py-4 border-white border-top">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 pb-2">
-            <h4>Contatti</h4>
-            <p>
-              <strong>Gabriel Matteo Jones</strong><br>
-<a href="https://ufficio.gjws.it/">Ufficio Digitale</a>
-</p>
-            <div class="link-list-wrapper">
-              <ul class="footer-list link-list clearfix">
-                <li><a class="list-item" href="mailto:gmjblog@gjws.it">Email Info</a></li>
-                <li>
-                  <a class="list-item" href="mailto:assistenza@gjws.it">Assistenza</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-  <div class="it-footer-small-prints clearfix">
-    <div class="container">
-      <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
-        <li class="list-inline-item"><a href="https://legal.gabrieljones.it/media/">Media policy</a></li>
-        <li class="list-inline-item"><a href="https://ufficio.gjws.it">Ufficio Digitale</a></li>
-        <li class="list-inline-item"><a href="https://gjws.it/datawin">Sito realizzato DataWin</a></li>
-        <li class="list-inline-item"><a href="javascript:void(0);" onclick="openPopup()">Apri Admin</a></li>
-
-<script>
-  function openPopup() {
-    window.open('https://gmjredazione.netlify.app/admin/#/', 'PopupWindow', 'width=800,height=600,scrollbars=yes,resizable=yes');
-  }
-</script>
-
+    <!-- Dropdown 1 -->
+    <li class="usa-nav__primary-item">
+      <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-submenu-1">
+        <span>Biblioteconomia e Affari Istituzionali</span>
+      </button>
+      <ul id="nav-submenu-1" class="usa-nav__submenu">
+        <li class="usa-nav__submenu-item"><a href="/aree/1/" class="usa-nav__link">Panoramica</a></li>
+        <li class="usa-nav__submenu-item"><a href="/aree/1/progetti/" class="usa-nav__link">Progetti</a></li>
+        <li class="usa-nav__submenu-item"><a href="/aree/1/documenti/" class="usa-nav__link">Documenti</a></li>
       </ul>
-    </div>
-  </div>
-</footer>
-<script type="text/javascript">
-var _iub = _iub || [];
-_iub.csConfiguration = {"siteId":4052509,"cookiePolicyId":40124372,"lang":"it","storage":{"useSiteId":true}};
-</script>
+    </li>
 
-<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4052509.js"></script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <!-- Dropdown 2 -->
+    <li class="usa-nav__primary-item">
+      <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-submenu-2">
+        <span>Infanzia</span>
+      </button>
+      <ul id="nav-submenu-2" class="usa-nav__submenu">
+        <li class="usa-nav__submenu-item"><a href="/aree/2/" class="usa-nav__link">Panoramica</a></li>
+        <li class="usa-nav__submenu-item"><a href="/aree/2/laboratori/" class="usa-nav__link">Laboratori</a></li>
+        <li class="usa-nav__submenu-item"><a href="/aree/2/eventi/" class="usa-nav__link">Eventi</a></li>
+      </ul>
+    </li>
+
+    <!-- Dropdown 3 -->
+    <li class="usa-nav__primary-item">
+      <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="nav-submenu-3">
+        <span>Progetti e Informatica</span>
+      </button>
+      <ul id="nav-submenu-3" class="usa-nav__submenu">
+        <li class="usa-nav__submenu-item"><a href="/aree/3/" class="usa-nav__link">Panoramica</a></li>
+        <li class="usa-nav__submenu-item"><a href="/aree/3/software/" class="usa-nav__link">Software</a></li>
+        <li class="usa-nav__submenu-item"><a href="/aree/3/risorse/" class="usa-nav__link">Risorse</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </header>
+
+  <section aria-label="...">
+    <div class="grid-container">
+      <br />
+      <br />
+<img
+  src="{{ page.image | default: 'https://d1ldvf68ux039x.cloudfront.net/thumbs/photos/1509/2164680/1000w_q95.jpg' }}"
+  alt="NA"
+  class="hero-image"
+/>
+    </div>
+  </section>
+
+  <main id="documenti" class="usa-prose" role="main">
+    <div id="allerts"></div>
+
+<script src="https://gabrielmatteojones.github.io/allerts/allerte.js"></script>
+    {{ content }}
+  </main>
+
+  <footer>
+    <div class="grid-container">
+      &copy; 2025 Ufficio Digitale di Gabriel Matteo Jones • Tutti i diritti riservati • <a href="/legal/privacy/" style="color:#cbd3dc;">Privacy</a> • <a href="/accessibilita/" style="color:#cbd3dc;">Accessibilità</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/uswds@2.14.0/dist/js/uswds.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnMobile = document.getElementById("titleMobileBtn");
+      const menuMobile = document.getElementById("titleMobileMenu");
+
+      btnMobile.addEventListener("click", () => {
+        const expanded = btnMobile.getAttribute("aria-expanded") === "true";
+        btnMobile.setAttribute("aria-expanded", String(!expanded));
+        menuMobile.classList.toggle("show");
+      });
+
+      // Chiudi menu se clicchi fuori (solo su mobile)
+      document.addEventListener("click", (event) => {
+        if (!btnMobile.contains(event.target) && !menuMobile.contains(event.target)) {
+          btnMobile.setAttribute("aria-expanded", "false");
+          menuMobile.classList.remove("show");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
