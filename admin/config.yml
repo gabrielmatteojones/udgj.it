@@ -1,35 +1,70 @@
 backend:
   name: git-gateway
-  branch: dependabot/bundler/addressable-2.8.1 # La tua branch principale, solitamente 'main' o 'master'
+  branch: main # ramo principale del repository
 
-media_folder: "assets" # Dove saranno caricate le immagini
-public_folder: "/assets" # Path pubblico per le immagini
+media_folder: "assets/uploads" # dove salvare i file caricati
+public_folder: "/assets/uploads"
+
+# Impostazioni globali
+site_url: "https://tuo-sito.netlify.app"
+display_url: "https://tuo-sito.netlify.app"
+logo_url: "/assets/logo.png"
 
 collections:
-  - name: "posts" # Nome della collection, che corrisponde ai post
-    label: "Post"
-    folder: "_posts" # La cartella dove sono i post in Jekyll
-    create: true # Permette di creare nuovi post
-    slug: "{{year}}-{{day}}-{{month}}-{{slug}}" # Struttura del nome dei file
+  # Gestione file _config.yml
+  - name: "settings"
+    label: "Impostazioni Sito"
+    files:
+      - label: "Configurazione Generale"
+        name: "config"
+        file: "_config.yml"
+        fields:
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Descrizione", name: "description", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Base URL", name: "baseurl", widget: "string", required: false }
+          - label: "Autore"
+            name: "author"
+            widget: "object"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+
+  # Pagine statiche
+  - name: "pages"
+    label: "Pagine"
+    folder: "_pages"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", default: "now" } # Data automatica
-      - { label: "Contenuto", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Categorie", name: "categories", widget: "list" }
-      - { label: "Descrizione", name: "description", widget: "string" }
-      - { label: "Parole Chiave", name: "keywords", widget: "string" }
-      - { label: "Immagine", name: "image", widget: "image" }
-      - { label: "Permalink", name: "permalink", widget: "string" }
-      - { label: "Riferimento", name: "ref", widget: "string", default: "new" } # Riferimento automatico
-      - { label: "Autore", name: "author", widget: "hidden", default: "Redazione GMJ" } # Autore nascosto
-      - { label: "Lingua", name: "lang", widget: "hidden", default: "it" }
-  - name: "page" # Nome della collection, che corrisponde ai post
-    label: "Post"
-    folder: "it" # La cartella dove sono i post in Jekyll
-    create: true # Permette di creare nuovi post
-    slug: "{{title}}" # Struttura del nome dei file
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Corpo", name: "body", widget: "markdown" }
+
+  # Post del blog
+  - name: "posts"
+    label: "Articoli"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", default: "now" } # Data automatica
-      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Categoria", name: "categories", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Corpo", name: "body", widget: "markdown" }
+
+  # Documenti
+  - name: "docs"
+    label: "Documenti"
+    folder: "_docs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Descrizione", name: "description", widget: "text" }
+      - { label: "File PDF", name: "file", widget: "file" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Corpo", name: "body", widget: "markdown", required: false }
