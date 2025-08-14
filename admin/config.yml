@@ -28,6 +28,6 @@ collections:
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Layout", name: "layout", widget: "string", default: "post" }
       - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Categorie", name: "categories", widget: "list", required: false }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Categorie", name: "categories", widget: "list", required: false, default: [] }
+      - { label: "Tags", name: "tags", widget: "list", required: false, default: [] }
       - { label: "Corpo", name: "body", widget: "markdown" }
