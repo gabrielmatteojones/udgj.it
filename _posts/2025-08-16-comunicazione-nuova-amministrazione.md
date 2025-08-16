@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Comunicazione nuova amministrazione
 date: 2025-08-16T11:53:00+02:00
 categories:
