@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 title: Benvenuto nell'ufficio digitale di Gabriel Matteo Jones
 description: n/a
 lang: it
