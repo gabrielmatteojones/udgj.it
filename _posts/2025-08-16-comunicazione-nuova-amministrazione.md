@@ -8,6 +8,7 @@ tags:
 autore: Gabriel Matteo Jones
 ---
 Con la **Circolare n. 4 del 2022**, *Accento Civico* ha introdotto l’obbligo, per tutti i siti web riconducibili a **Gabriel Matteo Jones**, **Accento Civico**, **UPID** e **AGFO**, di essere dotati di una specifica sezione denominata **“Amministrazione”**.
+
 All’interno di tale sezione devono essere pubblicati, in modo chiaro e accessibile, i principali documenti relativi alla gestione del sito e alle normative vigenti, tra cui:
 
 * la **Dichiarazione di Accessibilità**;
