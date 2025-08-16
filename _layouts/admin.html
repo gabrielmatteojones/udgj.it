@@ -1,6 +1,22 @@
 ---
 layout: default
 ---
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" type="text/javascript"></script>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  // Verifica se l'utente è autenticato
+  if (typeof netlifyIdentity !== 'undefined') {
+    netlifyIdentity.on('init', user => {
+      if (!user) {
+        // Se non autenticato, redirigi alla pagina /admin/
+        window.location.href = '/admin/';
+      } else {
+        // Se autenticato, non fare nulla (evita il popup)
+        console.log("Utente autenticato, nessun popup");
+      }
+    });
+  }
+</script>
 
     {{ content }}
