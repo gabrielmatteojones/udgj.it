@@ -27,3 +27,7 @@ La nuova circolare entrerà in vigore con decorrenze progressive:
 * **dal 1° giugno 2026**, l’obbligo verrà esteso a **tutti i settori dell’UDGJ**, con applicazione uniforme a livello generale.
 
 È stabilito, inoltre, che i siti che, entro le scadenze previste, non risulteranno conformi alla nuova normativa, verranno **rimossi da DataWin** e considerati come progetti a **gestione autonoma**, con onere integrale a carico dei rispettivi responsabili, che dovranno provvedere tramite i propri strumenti organizzativi e tecnici.
+
+## Allegati
+
+[Allegato "A"](http://udgj.it/amministrazione/aggiornata.pdf)
