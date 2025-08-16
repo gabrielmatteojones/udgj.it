@@ -2,19 +2,43 @@
 layout: default
 ---
 
-<section class="usa-hero usagov-hero" aria-label="Introduction" style="background-image: url(https://www.usa.gov/s3/files/styles/webp/public/2024-01/Banner_img_Education.png.webp?itok=nkoenBiw)">
-								<div class="grid-container">
-					<div class="grid-row grid-gap-1">
-						<div class="tablet:grid-col-6 tablet-lg:grid-col-4">
-							<div class="usa-hero__callout usagov-hero__callout">
-								<h2 class="usa-hero__heading"><span class="usa-hero__heading--alt">Most popular</span></h2>
-								<ul>
-																			<li><a href="/student-aid">Learn about the types of student financial aid </a></li>
-																			<li><a href="/fafsa">Apply for Federal Student Aid</a></li>
-																			<li><a href="/learn-english">Find free and low-cost courses to learn English</a></li>
-																	</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				</section>
+{{ content }}
+
+<section class="usa-section bg-base-lightest">
+  <div class="grid-container">
+    <h2 class="margin-bottom-4">{{ include.title | default: "Ultime News" }}</h2>
+    <div class="grid-row grid-gap">
+      {% for post in site.posts limit:include.limit | default:6 %}
+        <div class="tablet:grid-col-6 desktop:grid-col-4 margin-bottom-4">
+          <div class="usa-card">
+            <div class="usa-card__container">
+              {% if post.image %}
+                <header class="usa-card__header">
+                  <img src="{{ post.image }}" alt="{{ post.title }}" class="usa-card__img">
+                </header>
+              {% endif %}
+              <div class="usa-card__body">
+                <h3 class="usa-card__heading">
+                  <a href="{{ post.url }}" class="text-no-underline">
+                    {{ post.title }}
+                  </a>
+                </h3>
+                <p class="text-base-dark">
+                  {{ post.excerpt | strip_html | truncate: 120 }}
+                </p>
+                <p class="usa-text--small text-base">
+                  {{ post.date | date: "%d/%m/%Y" }}
+                </p>
+              </div>
+              <div class="usa-card__footer">
+                <a href="{{ post.url }}" class="usa-button usa-button--outline">
+                  Leggi di più
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
