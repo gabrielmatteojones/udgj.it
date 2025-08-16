@@ -34,6 +34,7 @@ collections:
     preview_path: "posts/{{slug}}"
     sortable_fields: ['date', 'title']
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
       - { label: "Categoria", name: "categories", widget: "list", default: ["notizie"] }
