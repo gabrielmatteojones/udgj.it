@@ -40,6 +40,6 @@ Uno spazio operativo, aperto e trasparente, dove si coordinano attività cultura
 
 ✋ Vuoi metterti in gioco come volontario?
 
-Compila il form qui sotto e raccontami chi sei, cosa ti piace fare e in che modo ti piacerebbe contribuire ai progetti dell’Ufficio di Gabriel Jones.
+Mandami un'email all'indirizzo "info@18f.it" e raccontami chi sei, cosa ti piace fare e in che modo ti piacerebbe contribuire ai progetti di Gabriel Jones.
 
 Ogni proposta verrà letta con attenzione. Se ci sono attività adatte al tuo profilo, ti ricontatterò!
