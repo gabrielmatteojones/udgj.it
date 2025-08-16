@@ -1,21 +1,23 @@
 ---
-layout: default
+layout: admin
 permalink: /sample/
-title: Sample
+title: sample
 ---
-
-<!-- Include il widget Netlify Identity -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" type="text/javascript"></script>
 
-<script>
-  window.onload = function() {
-    if (!window.netlifyIdentity || !window.netlifyIdentity.currentUser()) {
-      // Se l'utente non è autenticato, reindirizza alla pagina di login
-      netlifyIdentity.open();
-    }
-  };
+<script type="text/javascript">
+  // Verifica se l'utente è autenticato
+  if (typeof netlifyIdentity !== 'undefined') {
+    netlifyIdentity.on('init', user => {
+      if (!user) {
+        // Se non autenticato, redirigi alla pagina /admin/
+        window.location.href = '/admin/';
+      } else {
+        // Se autenticato, non fare nulla (evita il popup)
+        console.log("Utente autenticato, nessun popup");
+      }
+    });
+  }
 </script>
 
-<!-- Contenuto della pagina protetta -->
-<h1>Pagina protetta - Solo per utenti autenticati</h1>
-<p>Questo contenuto è visibile solo se sei loggato!</p>
+<p>Sample</p>
