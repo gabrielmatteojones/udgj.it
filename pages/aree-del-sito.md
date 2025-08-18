@@ -3,7 +3,7 @@ layout: page
 title: Aree del Sito
 date: 2025-08-12T16:39:00.000+02:00
 permalink: /aree/
-categories: "[educazione]"
+categories: "[amministrazione]"
 ---
 Il sito ufficiale dell’Ufficio Digitale di **Gabriel Matteo Jones** è organizzato in diverse **Aree tematiche**, ciascuna delle quali raccoglie in modo strutturato **pagine, profili, account utente, post, archivi documentali e siti tematici** collegati.
 Questa suddivisione consente di navigare agevolmente tra i contenuti e di accedere alle informazioni in base alla tipologia di servizio o ambito di attività.
