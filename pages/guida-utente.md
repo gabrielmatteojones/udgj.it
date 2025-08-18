@@ -4,7 +4,7 @@ title: Guida Utente
 date: 2025-08-16T22:32:00.000+02:00
 permalink: /guida-utente/
 image: https://sediaufficio365.it/modules/dbblog/views/img/post/159-las-mejores-ideas-para-despachos-modernos.webp
-categories: "[educazione]"
+categories: "[datawin]"
 ---
 ### 1. **Accedere al gestionale**
 
