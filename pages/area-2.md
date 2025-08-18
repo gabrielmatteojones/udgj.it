@@ -3,7 +3,7 @@ layout: page
 title: Area 1 – Affari Istituzionali e Biblioteconomia
 date: 2025-08-11T23:47:00.000+02:00
 permalink: /aree/1/
-categories: aree
+categories: educazione
 ---
 L’Area 1 dell’Ufficio Digitale si occupa di due ambiti strettamente connessi:
 
