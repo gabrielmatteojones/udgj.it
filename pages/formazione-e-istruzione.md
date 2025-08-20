@@ -3,8 +3,7 @@ layout: educazione
 title: Formazione e Istruzione
 date: 2025-08-08T21:59:00.000+02:00
 permalink: /fi25/
-persone_correlate:
-  - gabriel-jones
+profilo_id: gabriel-jones
 categoria: educazione
 image: /assets/base.png
 categories: "[area1]"
