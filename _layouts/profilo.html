@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<section class="grid-container usa-section">
+  <div class="grid-row grid-gap">
+
+    <!-- Colonna profilo -->
+    <div class="grid-col-12 tablet:grid-col-4">
+      <div class="profile-card radius-lg shadow-lg bg-white padding-3">
+        {% if page.avatar %}
+          <img src="{{ page.avatar }}" alt="{{ page.title }}" class="width-full radius-md margin-bottom-2">
+        {% endif %}
+        <h1 class="margin-bottom-1">{{ page.title }}</h1>
+        {% if page.descrizione %}
+          <p class="margin-top-2">{{ page.descrizione }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Colonna contenuto principale -->
+    <div class="grid-col-12 tablet:grid-col-8">
+      <article class="usa-prose">
+        {{ content }}
+      </article>
+
+      <!-- Pagine correlate -->
+      <section class="margin-top-4">
+        <div class="profile-card radius-lg shadow-lg bg-white padding-3">
+          <h2 class="margin-bottom-2">Pagine correlate</h2>
+          <ul class="usa-list usa-list--unstyled">
+            {% assign pagine_correlate = site.pages | where:"profilo_id", page.profilo_id %}
+            {% if pagine_correlate != empty %}
+              {% for pagina in pagine_correlate %}
+                {% unless pagina.url == page.url %}
+                  <li class="margin-y-1">
+                    <a href="{{ pagina.url }}" class="usa-link">
+                      {{ pagina.title }}
+                    </a>
+                  </li>
+                {% endunless %}
+              {% endfor %}
+            {% else %}
+              <li class="text-base text-italic text-gray-50">
+                Nessuna pagina correlata trovata.
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </section>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Card stile "Bootstrap Italia" ma con USWDS */
+  .profile-card {
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+</style>
