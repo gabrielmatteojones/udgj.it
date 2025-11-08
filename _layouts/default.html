@@ -302,5 +302,29 @@
       });
     });
   </script>
+<script>
+document.addEventListener('click', function(event) {
+  const menu = document.getElementById('basic-mobile-menu');
+  const menuBtn = document.querySelector('.usa-menu-btn');
+
+  // Verifica se il menu è aperto
+  const isMenuOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+
+  // Se il menu è aperto e si clicca fuori sia dal menu che dal bottone
+  if (isMenuOpen && !menu.contains(event.target) && !menuBtn.contains(event.target)) {
+    // Chiudi il menu
+    menu.hidden = true;
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Gestione apertura/chiusura del menu con il pulsante originale
+document.querySelector('.usa-menu-btn').addEventListener('click', function() {
+  const menu = document.getElementById('basic-mobile-menu');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  menu.hidden = expanded;
+});
+</script>
 </body>
 </html>
